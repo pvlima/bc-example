@@ -8,20 +8,13 @@ export default function RouteWrapper({
   component: Component,
   ...rest
 }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) => (
-          <Component {...props} />
-      )}
-    />
-  );
+  return <Route {...rest} render={(props) => <Component {...props} />} />;
 }
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
   admin: PropTypes.bool,
-  option: PropTypes.string.isRequired,
+  // option: PropTypes.string.isRequired,
   changeTo: PropTypes.string,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
